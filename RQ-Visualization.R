@@ -10,3 +10,17 @@ head(StudentsPerformance_data)    # Display the first few rows
 
 # Display the first two rows of the dataset in a tab-separated format
 write.table(head(StudentsPerformance_data, 2), sep = "\t", row.names = FALSE, quote = FALSE)
+# Summary statistics and structure of the dataset
+summary(StudentsPerformance_data)  # Summary statistics
+str(StudentsPerformance_data)      # Structure of the dataset
+
+# Checking for normality of GRADE
+# Histogram
+ggplot(StudentsPerformance_data, aes(x = GRADE)) +
+  geom_histogram(binwidth = 1, color = "black", fill = "skyblue") +
+  ggtitle("Distribution of GRADE") +
+  xlab("GRADE") +
+  ylab("Frequency")
+
+shapiro_test <- shapiro.test(StudentsPerformance_data$GRADE)
+shapiro_test
