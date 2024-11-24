@@ -35,7 +35,8 @@ ggplot(StudentsPerformance_data, aes(x = GRADE)) +
   ggtitle("Histogram of GRADE with Bell Curve Overlay") +
   xlab("GRADE") +
   ylab("Density")
-git
+
+
 #Scatter Plot of Weekly Study Hours vs. Grade
 ggplot(StudentsPerformance_data, aes(x = `Weekly study hours`, y = GRADE)) +
   geom_point(color = "blue", alpha = 0.6) +
