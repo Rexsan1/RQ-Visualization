@@ -24,3 +24,14 @@ ggplot(StudentsPerformance_data, aes(x = GRADE)) +
 
 shapiro_test <- shapiro.test(StudentsPerformance_data$GRADE)
 shapiro_test
+
+# Histogram with a smooth bell curve overlay
+ggplot(StudentsPerformance_data, aes(x = GRADE)) +
+  geom_histogram(aes(y = ..density..), binwidth = 1, color = "black", fill = "skyblue") +
+  stat_function(fun = dnorm, 
+                args = list(mean = mean(StudentsPerformance_data$GRADE), 
+                            sd = sd(StudentsPerformance_data$GRADE)), 
+                color = "red", size = 1) +
+  ggtitle("Histogram of GRADE with Bell Curve Overlay") +
+  xlab("GRADE") +
+  ylab("Density")
